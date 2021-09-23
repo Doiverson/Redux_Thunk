@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import AppSaga from './AppSaga';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        {/*<App />*/}
+        <AppSaga/>
     </React.StrictMode>,
     document.getElementById('root')
 );

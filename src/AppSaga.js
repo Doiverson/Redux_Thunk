@@ -1,11 +1,12 @@
 import React from 'react';
 
 import {createStore, applyMiddleware} from 'redux';
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga'
 
-import reducers from './Redux-TEST/reducers/index';
+import reducers from './Redux-Saga/reducers/index';
+import rootSaga from './Redux-Saga/sagas/index';
 import Test from './Redux-Saga/components/Test'
-import { helloSaga } from './Redux-Saga/components/Saga'
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -14,13 +15,14 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 )
 
-sagaMiddleware.run(helloSaga)
-
-const action = type => store.dispatch({type})
+sagaMiddleware.run(rootSaga)
 
 function AppSaga() {
     return (
-        <Test action={action}/>
+        <Provider store={store}>
+            <Test/>
+        </Provider>
+
     );
 }
 

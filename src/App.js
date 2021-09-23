@@ -14,7 +14,7 @@ const store = createStore(reducers,applyMiddleware(thunk))
 function App() {
   return (
       <Provider store={store}>
-        <Test/>
+          <Test/>
           <TestHook/>
       </Provider>
   );
